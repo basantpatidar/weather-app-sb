@@ -78,4 +78,11 @@ public class WeatherReading {
 		this.timestamp = timestamp;
 	}
 
+	@Override
+	public String toString() {
+		return "WeatherReading [id=" + id + ", city=" + city + ", description=" + description + ", humidity=" + humidity
+				+ ", pressure=" + pressure + ", temperature=" + temperature + ", wind=" + wind + ", timestamp="
+				+ timestamp + "]";
+	}
+
 }
