@@ -2,7 +2,11 @@ package com.spring.boot.weather.info.model;
 
 import java.sql.Timestamp;
 
+
 public class WeatherReading {
+	
+//	static double a = (Math.random()+1)*12121236;
+//	static{System.out.println(a);};
 	
 	String id;
 	String city;
@@ -16,10 +20,10 @@ public class WeatherReading {
 	
 	
 	
-	public WeatherReading(String id, String city, String description, Double humidity, double pressure,
+	public WeatherReading(String city, String description, Double humidity, double pressure,
 			double temperature, Wind wind, Timestamp timestamp) {
 		super();
-		this.id = id;
+		
 		this.city = city;
 		this.description = description;
 		this.humidity = humidity;
@@ -29,12 +33,6 @@ public class WeatherReading {
 		this.timestamp = timestamp;
 	}
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getCity() {
 		return city;
 	}
