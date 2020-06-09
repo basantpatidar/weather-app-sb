@@ -50,6 +50,7 @@ public class WeatherInfoController {
 //		System.out.println(jsonNode.findValue("city"));
 		
 		System.out.println(weatherReading);
+		weatherService.addWeatherReadings(weatherReading);
 		
 		return true;
 	}
