@@ -57,7 +57,7 @@ public class WeatherInfoController {
 	
 	@GetMapping("/sortedReadings")
 	public List<WeatherReading> getAll(){
-		return weatherService.getWeatherReadings();
+		return weatherService.getWeatherReadingsSorted();
 	}
 
 
