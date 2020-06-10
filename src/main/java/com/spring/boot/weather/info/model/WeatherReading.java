@@ -3,12 +3,14 @@ package com.spring.boot.weather.info.model;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import javax.persistence.Id;
+
 
 public class WeatherReading {
 	
 //	static double a = (Math.random()+1)*12121236;
 //	static{System.out.println(a);};
-	
+	@Id
 	private String id;
 	private String city;
 	private String description;
