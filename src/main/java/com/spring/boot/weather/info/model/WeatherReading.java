@@ -9,14 +9,14 @@ public class WeatherReading {
 //	static double a = (Math.random()+1)*12121236;
 //	static{System.out.println(a);};
 	
-	String id;
-	String city;
-	String description;
-	Double humidity;
-	double pressure;
-	double temperature;
-	Wind wind;
-	Timestamp timestamp;
+	private String id;
+	private String city;
+	private String description;
+	private Double humidity;
+	private double pressure;
+	private double temperature;
+	private Wind wind;
+	private Timestamp timestamp;
 	
 	
 	
