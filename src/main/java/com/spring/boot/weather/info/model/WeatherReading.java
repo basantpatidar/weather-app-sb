@@ -3,13 +3,12 @@ package com.spring.boot.weather.info.model;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
+@Entity
 public class WeatherReading {
 	
-//	static double a = (Math.random()+1)*12121236;
-//	static{System.out.println(a);};
 	@Id
 	private String id;
 	private String city;
@@ -17,23 +16,25 @@ public class WeatherReading {
 	private Double humidity;
 	private double pressure;
 	private double temperature;
-	private Wind wind;
+//	private Wind wind;
 	private Timestamp timestamp;
 	
+	public WeatherReading(){
+		this.id = UUID.randomUUID().toString();
+	}
 	
 	
-	
-	public WeatherReading(String id, String city, String description, Double humidity, double pressure,
-			double temperature, Wind wind, Timestamp timestamp) {
+	public WeatherReading(String city, String description, Double humidity, double pressure,
+			double temperature, Timestamp timestamp) {
 		super();
 		
-		this.id = UUID.randomUUID().toString();
+//		this.id = UUID.randomUUID().toString();
 		this.city = city;
 		this.description = description;
 		this.humidity = humidity;
 		this.pressure = pressure;
 		this.temperature = temperature;
-		this.wind = wind;
+//		this.wind = wind;
 		this.timestamp = timestamp;
 	}
 	
@@ -67,12 +68,12 @@ public class WeatherReading {
 	public void setTemperature(double temperature) {
 		this.temperature = temperature;
 	}
-	public Wind getWind() {
-		return wind;
-	}
-	public void setWind(Wind wind) {
-		this.wind = wind;
-	}
+//	public Wind getWind() {
+//		return wind;
+//	}
+//	public void setWind(Wind wind) {
+//		this.wind = wind;
+//	}
 	public Timestamp getTimestamp() {
 		return timestamp;
 	}
@@ -80,11 +81,13 @@ public class WeatherReading {
 		this.timestamp = timestamp;
 	}
 
+
 	@Override
 	public String toString() {
 		return "WeatherReading [id=" + id + ", city=" + city + ", description=" + description + ", humidity=" + humidity
-				+ ", pressure=" + pressure + ", temperature=" + temperature + ", wind=" + wind + ", timestamp="
-				+ timestamp + "]";
+				+ ", pressure=" + pressure + ", temperature=" + temperature + ", timestamp=" + timestamp + "]";
 	}
+
+	
 
 }

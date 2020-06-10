@@ -2,8 +2,6 @@ package com.spring.boot.weather.info.controller;
 
 import java.util.List;
 
-import javax.inject.Singleton;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.boot.weather.info.model.WeatherReading;
 import com.spring.boot.weather.info.service.WeatherService;
 
-@Singleton
+
 @RestController
 @RequestMapping("/weather")
 public class WeatherInfoController {

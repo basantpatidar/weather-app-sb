@@ -2,13 +2,17 @@ package com.spring.boot.weather.info.model;
 
 import java.util.UUID;
 
-public class Wind {
-	
-	String id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-	double speed;
+@Entity
+public class Wind {
+	@Id
+	private String id;
+
+	private double speed;
 	
-	double degree;
+	private double degree;
 	
 	
 
