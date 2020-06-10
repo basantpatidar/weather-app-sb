@@ -1,6 +1,10 @@
 package com.spring.boot.weather.info.model;
 
+import java.util.UUID;
+
 public class Wind {
+	
+	String id;
 
 	double speed;
 	
@@ -8,8 +12,9 @@ public class Wind {
 	
 	
 
-	public Wind(double speed, double degree) {
+	public Wind(String id, double speed, double degree) {
 		super();
+		this.id = UUID.randomUUID().toString();
 		this.speed = speed;
 		this.degree = degree;
 	}
