@@ -1,6 +1,7 @@
 package com.spring.boot.weather.info.model;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 
 public class WeatherReading {
@@ -20,10 +21,11 @@ public class WeatherReading {
 	
 	
 	
-	public WeatherReading(String city, String description, Double humidity, double pressure,
+	public WeatherReading(String id, String city, String description, Double humidity, double pressure,
 			double temperature, Wind wind, Timestamp timestamp) {
 		super();
 		
+		this.id = UUID.randomUUID().toString();
 		this.city = city;
 		this.description = description;
 		this.humidity = humidity;
