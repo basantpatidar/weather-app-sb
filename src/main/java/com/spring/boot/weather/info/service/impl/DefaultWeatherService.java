@@ -1,10 +1,12 @@
 package com.spring.boot.weather.info.service.impl;
 
-import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.spring.boot.weather.info.model.WeatherAlert;
 import com.spring.boot.weather.info.model.WeatherReading;
 import com.spring.boot.weather.info.repository.WeatherRepository;
 import com.spring.boot.weather.info.service.WeatherService;
@@ -16,16 +18,29 @@ public class DefaultWeatherService implements WeatherService{
 	
 	WeatherRepository weatherRespository;
 	
-	public DefaultWeatherService(WeatherRepository weatherRepository) {
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	public DefaultWeatherService(WeatherRepository weatherRepository, RestTemplate restTemplate) {
 		this.weatherRespository = weatherRepository;
+		this.restTemplate = restTemplate;
 	}
 
 	@Override
 	public boolean addWeatherReadings(WeatherReading weatherReading) {
 		System.out.println(weatherReading);
 //		list.add(weatherReading);
-		weatherRespository.save(weatherReading);
-		return true;
+//		weatherRespository.save(weatherReading);
+		if(weatherReading.getTemperature() > 25) {
+			WeatherAlert weatherAlert = new WeatherAlert("Too Hot", weatherReading);
+			return restTemplate.postForObject("http://localhost/9090/addReading", weatherAlert, boolean.class);
+		}
+		
+		if(weatherReading.getWind().getSpeed() > 6) {
+			WeatherAlert weatherAlert = new WeatherAlert("Too windy", weatherReading);
+			return restTemplate.postForObject("http://localhost/9090/addReading", weatherAlert, boolean.class);
+		}
+		return false;
 	}
 
 	@Override

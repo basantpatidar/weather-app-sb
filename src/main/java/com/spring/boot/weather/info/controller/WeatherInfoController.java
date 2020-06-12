@@ -12,6 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.boot.weather.info.model.WeatherReading;
 import com.spring.boot.weather.info.service.WeatherService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
+//Lombok not working
+//Wind not working using @OnetoOne Mapping with UUID.randomUUID().toString();
+//AWS is not working
+
+
 
 @RestController
 @RequestMapping("/weather")
@@ -25,7 +34,7 @@ public class WeatherInfoController {
 	}
 	
 //	private ObjectMapper objectMapper;
-//	//contructor DI
+//	//constructor DI
 //	public WeatherInfoController(ObjectMapper objectMapper) {
 //		this.objectMapper = objectMapper;
 //	}
@@ -41,13 +50,19 @@ public class WeatherInfoController {
 	
 //	@RequestMapping(value="addWeatherReading", method=RequestMethod.POST)
 	@PostMapping("/addWeatherReading")
-	public Boolean AddReading(@RequestBody WeatherReading weatherReading) {
+	@ApiOperation(value="A Post method for Adding List")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "ok"),
+			@ApiResponse(code = 201, message = "Added"),
+			@ApiResponse(code = 500, message = "Internal Server Error")
+	})
+	public boolean AddReading(@RequestBody WeatherReading weatherReading) {
 //	public Boolean AddReading(@RequestBody JsonNode jsonNode) throws JsonMappingException, JsonProcessingException {
 //		WeatherReading weatherReading = objectMapper.readValue(jsonNode.toString(),WeatherReading.class);
 //		System.out.println(jsonNode);
 //		System.out.println(jsonNode.findValue("city"));
 		
-		System.out.println(weatherReading);
+//		System.out.println(weatherReading);
 		weatherService.addWeatherReadings(weatherReading);
 		
 		return true;

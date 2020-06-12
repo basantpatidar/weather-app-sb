@@ -1,10 +1,16 @@
 package com.spring.boot.weather.info.model;
 
+import lombok.Data;
+
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+
 
 @Entity
 public class WeatherReading {
@@ -16,7 +22,8 @@ public class WeatherReading {
 	private Double humidity;
 	private double pressure;
 	private double temperature;
-//	private Wind wind;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Wind wind;
 	private Timestamp timestamp;
 	
 	public WeatherReading(){
@@ -25,7 +32,7 @@ public class WeatherReading {
 	
 	
 	public WeatherReading(String city, String description, Double humidity, double pressure,
-			double temperature, Timestamp timestamp) {
+			double temperature, Wind wind, Timestamp timestamp) {
 		super();
 		
 //		this.id = UUID.randomUUID().toString();
@@ -34,7 +41,7 @@ public class WeatherReading {
 		this.humidity = humidity;
 		this.pressure = pressure;
 		this.temperature = temperature;
-//		this.wind = wind;
+		this.wind = wind;
 		this.timestamp = timestamp;
 	}
 	
@@ -68,12 +75,12 @@ public class WeatherReading {
 	public void setTemperature(double temperature) {
 		this.temperature = temperature;
 	}
-//	public Wind getWind() {
-//		return wind;
-//	}
-//	public void setWind(Wind wind) {
-//		this.wind = wind;
-//	}
+	public Wind getWind() {
+		return wind;
+	}
+	public void setWind(Wind wind) {
+		this.wind = wind;
+	}
 	public Timestamp getTimestamp() {
 		return timestamp;
 	}
@@ -85,9 +92,8 @@ public class WeatherReading {
 	@Override
 	public String toString() {
 		return "WeatherReading [id=" + id + ", city=" + city + ", description=" + description + ", humidity=" + humidity
-				+ ", pressure=" + pressure + ", temperature=" + temperature + ", timestamp=" + timestamp + "]";
+				+ ", pressure=" + pressure + ", temperature=" + temperature + ", wind=" + wind + ", timestamp="
+				+ timestamp + "]";
 	}
-
-	
 
 }
