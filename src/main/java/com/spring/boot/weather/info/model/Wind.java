@@ -44,8 +44,6 @@ public class Wind {
 		this.degree = degree;
 	}
 	
-
-
 	@Override
 	public String toString() {
 		return "Wind [speed=" + speed + ", degree=" + degree + "]";
