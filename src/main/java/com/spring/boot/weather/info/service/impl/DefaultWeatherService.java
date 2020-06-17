@@ -33,12 +33,12 @@ public class DefaultWeatherService implements WeatherService{
 //		weatherRespository.save(weatherReading);
 		if(weatherReading.getTemperature() > 25) {
 			WeatherAlert weatherAlert = new WeatherAlert("Too Hot", weatherReading);
-			return restTemplate.postForObject("http://localhost/9090/addReading", weatherAlert, boolean.class);
+			return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
 		}
 		
 		if(weatherReading.getWind().getSpeed() > 6) {
 			WeatherAlert weatherAlert = new WeatherAlert("Too windy", weatherReading);
-			return restTemplate.postForObject("http://localhost/9090/addReading", weatherAlert, boolean.class);
+			return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
 		}
 		return false;
 	}
