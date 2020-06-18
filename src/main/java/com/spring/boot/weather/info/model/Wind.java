@@ -21,7 +21,6 @@ public class Wind {
 		
 //		this.id = UUID.randomUUID().toString();
 		
-		System.out.println("here is error"+ id);
 	}
 	
 
