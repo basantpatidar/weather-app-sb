@@ -19,7 +19,7 @@ public class Wind {
 	
 	public Wind() {
 		
-		this.id = UUID.randomUUID().toString();
+//		this.id = UUID.randomUUID().toString();
 		
 	}
 	

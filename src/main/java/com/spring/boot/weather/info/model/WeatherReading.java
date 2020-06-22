@@ -27,7 +27,7 @@ public class WeatherReading {
 	private Timestamp timestamp;
 	
 	public WeatherReading(){
-		this.id = UUID.randomUUID().toString();
+//		this.id = UUID.randomUUID().toString();
 	}
 	
 	
