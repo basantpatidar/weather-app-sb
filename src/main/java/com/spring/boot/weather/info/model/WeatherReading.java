@@ -5,24 +5,24 @@ import lombok.Data;
 import java.sql.Timestamp;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+//import javax.persistence.CascadeType;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.OneToOne;
 
 
 
-@Entity
+//@Entity
 public class WeatherReading {
 	
-	@Id
+//	@Id
 	private String id;
 	private String city;
 	private String description;
 	private Double humidity;
 	private double pressure;
 	private double temperature;
-	@OneToOne(cascade = CascadeType.ALL)
+//	@OneToOne(cascade = CascadeType.ALL)
 	private Wind wind;
 	private Timestamp timestamp;
 	

@@ -2,16 +2,16 @@ package com.spring.boot.weather.info.model;
 
 import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
+//@Entity
 public class Wind {
-	@Id @GeneratedValue
-	private int id;
+//	@Id @GeneratedValue
+	private String id;
 
 	private double speed;
 	
@@ -19,7 +19,7 @@ public class Wind {
 	
 	public Wind() {
 		
-//		this.id = UUID.randomUUID().toString();
+		this.id = UUID.randomUUID().toString();
 		
 	}
 	

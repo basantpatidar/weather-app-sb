@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.spring.boot.weather.info.model.WeatherAlert;
 import com.spring.boot.weather.info.model.WeatherReading;
-import com.spring.boot.weather.info.repository.WeatherRepository;
 import com.spring.boot.weather.info.service.WeatherService;
 
 @Service
@@ -16,13 +15,10 @@ public class DefaultWeatherService implements WeatherService{
 	
 //	List<WeatherReading> list = new LinkedList<>();
 	
-	WeatherRepository weatherRespository;
-	
 	private RestTemplate restTemplate;
 	
 	@Autowired
-	public DefaultWeatherService(WeatherRepository weatherRepository, RestTemplate restTemplate) {
-		this.weatherRespository = weatherRepository;
+	public DefaultWeatherService(RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
 	}
 
@@ -30,7 +26,6 @@ public class DefaultWeatherService implements WeatherService{
 	public boolean addWeatherReadings(WeatherReading weatherReading) {
 		System.out.println(weatherReading);
 //		list.add(weatherReading);
-//		weatherRespository.save(weatherReading);
 		if(weatherReading.getTemperature() > 25) {
 			WeatherAlert weatherAlert = new WeatherAlert("Too Hot", weatherReading);
 			return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
@@ -46,8 +41,7 @@ public class DefaultWeatherService implements WeatherService{
 	@Override
 	public List<WeatherReading> getWeatherReadingsSorted() {
 //		list.sort(Comparator.comparing(WeatherReading::getTimestamp));
-		List<WeatherReading> weatherList = (List<WeatherReading>) weatherRespository.findAll();
-		return weatherList;
+		return null;
 	}
 
 	
