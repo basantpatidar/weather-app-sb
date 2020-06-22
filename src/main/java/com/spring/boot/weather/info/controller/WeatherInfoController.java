@@ -16,9 +16,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-//Lombok not working
-//Wind not working using @OnetoOne Mapping with UUID.randomUUID().toString();
-//AWS is not working
 
 
 
