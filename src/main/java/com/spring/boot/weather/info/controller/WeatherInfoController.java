@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.spring.boot.weather.info.model.WeatherReading;
 import com.spring.boot.weather.info.service.WeatherService;
 
@@ -53,7 +54,7 @@ public class WeatherInfoController {
 			@ApiResponse(code = 201, message = "Added"),
 			@ApiResponse(code = 500, message = "Internal Server Error")
 	})
-	public boolean AddReading(@RequestBody WeatherReading weatherReading) {
+	public boolean AddReading(@RequestBody WeatherReading weatherReading) throws JsonProcessingException {
 //	public Boolean AddReading(@RequestBody JsonNode jsonNode) throws JsonMappingException, JsonProcessingException {
 //		WeatherReading weatherReading = objectMapper.readValue(jsonNode.toString(),WeatherReading.class);
 //		System.out.println(jsonNode);
