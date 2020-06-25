@@ -48,8 +48,16 @@ public class DefaultWeatherServiceTest {
 	}
 	
 	@Test
-	public void addWeatherTemparature() throws JsonProcessingException {
-		boolean b = defaultWeatherService.addWeatherReadings(GetWeatherObject.getWeatherObject());
+	public void addWeatherTemperature() throws JsonProcessingException {
+		boolean b = defaultWeatherService.addWeatherReadings(GetWeatherObject.getWeatherObjectTemp());
+		Mockito.when(objectMapper.writeValueAsString(Matchers.any(WeatherAlert.class))).thenReturn("Hello World");
+		Assert.assertTrue(b);
+		
+	}
+	
+	@Test
+	public void addWeatherWind() throws JsonProcessingException {
+		boolean b = defaultWeatherService.addWeatherReadings(GetWeatherObject.getWeatherObjectWind());
 		Mockito.when(objectMapper.writeValueAsString(Matchers.any(WeatherAlert.class))).thenReturn("Hello World");
 		Assert.assertTrue(b);
 		
