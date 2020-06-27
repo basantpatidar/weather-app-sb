@@ -31,22 +31,24 @@ public class DefaultWeatherService implements WeatherService{
 
 	@Override
 	public boolean addWeatherReadings(WeatherReading weatherReading) throws JsonProcessingException {
+		//Return true if weather alert obj created or else false
+		WeatherAlert weatherAlert = null;
 		System.out.println(weatherReading);
 //		list.add(weatherReading);
 		if(weatherReading.getTemperature() > 25) {
-			WeatherAlert weatherAlert = new WeatherAlert("Too Hot", weatherReading);
+			 weatherAlert = new WeatherAlert("Too Hot", weatherReading);
 			String message = objectMapper.writeValueAsString(weatherAlert);
-			weatherAlertSns.send("Tempareture", message);
+			weatherAlertSns.send("Tempareture Alert", message);
 //			return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
 		}
 		
 		if(weatherReading.getWind().getSpeed() > 6) {
-			WeatherAlert weatherAlert = new WeatherAlert("Too windy", weatherReading);
+			 weatherAlert = new WeatherAlert("Too windy", weatherReading);
 			String message = objectMapper.writeValueAsString(weatherAlert);
-			weatherAlertSns.send("Tempareture", message);
+			weatherAlertSns.send("Wind Alert", message);
 //			return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
 		}
-		return false;
+		return weatherAlert!= null;
 	}
 
 	@Override
