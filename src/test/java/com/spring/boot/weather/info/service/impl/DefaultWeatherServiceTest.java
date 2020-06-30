@@ -1,9 +1,5 @@
 package com.spring.boot.weather.info.service.impl;
 
-import static org.junit.Assert.*;
-
-import org.assertj.core.internal.bytebuddy.matcher.ElementMatchers;
-import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +13,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.boot.weather.info.awsMessanging.WeatherAlertSns;
 import com.spring.boot.weather.info.model.WeatherAlert;
-import com.spring.boot.weather.info.service.impl.DefaultWeatherService;
 import com.spring.boot.weather.info.service.impl.util.GetWeatherObject;
 
 import junit.framework.Assert;
