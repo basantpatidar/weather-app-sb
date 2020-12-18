@@ -47,7 +47,7 @@ public class DefaultWeatherService implements WeatherService{
 			 weatherAlert = new WeatherAlert("Too windy", weatherReading);
 			String message = objectMapper.writeValueAsString(weatherAlert);
 			weatherAlertSns.send("Wind Alert", message);
-//			return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
+			//return restTemplate.postForObject("http://localhost:9090/addReading", weatherAlert, boolean.class);
 		}
 		return weatherAlert!= null;
 	}
